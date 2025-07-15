@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Love</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top, #fce4ec, #f8bbd0);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .container {
+      text-align: center;
+      padding: 2rem;
+    }
+    .heart-msg {
+      font-size: 2rem;
+      color: #e91e63;
+      margin-bottom: 1.5rem;
+      font-weight: bold;
+      animation: fadeIn 3s ease-in-out;
+    }
+    .message {
+      max-width: 700px;
+      margin: auto;
+      background: #ffffffdd;
+      padding: 1.5rem;
+      border-radius: 20px;
+      font-size: 1.2rem;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      animation: fadeIn 4s ease-in-out;
+    }
+    .photos {
+      margin: 2rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+    .photos img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border: 4px solid #e91e63;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    .hug-btn {
+      margin: 2rem;
+      background-color: #e91e63;
+      color: white;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .hug-btn:hover {
+      background-color: #ad1457;
+    }
+    .popup {
+      display: none;
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      color: #880e4f;
+      font-weight: bold;
+    }
+    .sticky-note {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #ffeb3b;
+      padding: 1rem;
+      font-weight: bold;
+      font-size: 1rem;
+      border-radius: 10px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+      transform: rotate(-3deg);
+      z-index: 999;
+    }
+    .cute-gif {
+      margin-top: 2rem;
+    }
+    .exit-msg {
+      margin-top: 3rem;
+      font-size: 1.3rem;
+      font-style: italic;
+      color: #d81b60;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="sticky-note">You’re strong, beautiful, and never alone 💛</div>
+  <div class="container">
+    <div class="heart-msg">Hey love, I’m here for you 💕</div>
+
+    <div class="message">
+      My love,<br><br>
+      I know some days feel heavy. But I want you to know — you’re never alone.<br><br>
+      Your smile is my sunshine, your happiness is my world.<br><br>
+      I’m always with you, through every mood, tear, and silence.<br><br>
+      Take a deep breath, close your eyes, and feel my hug wrapping around you.<br><br>
+      You’re beautiful, strong, and deeply loved. Forever. 💖
+    </div>
+
+    <div class="photos">
+      <img src="us.jpg" alt="Photo 1 Placeholder">
+      <img src="we.jpg" alt="Photo 2 Placeholder">
+      <img src="we1.jpg" alt="Photo 3 Placeholder">
+      <img src="we2.jpg" alt="Photo 4 Placeholder">
+      <img src="we3.jpg" alt="Photo 5 Placeholder">
+    </div>
+
+    <button class="hug-btn" onclick="showHug()">Send Virtual Hug 🫂</button>
+    <div class="popup" id="hug-popup">*BIG HUG* 🤗 I'm hugging you right now!</div>
+
+    <div class="cute-gif">
+      <img src="hug .gif" width="200" alt="Cute hug GIF">
+    </div>
+
+    <div class="exit-msg">I love you, always. Your smile is my peace. ❤️</div>
+  </div>
+
+  <!-- Placeholder Audio -->
+ <audio id="bg-music" autoplay loop>
+  <source src="audio.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+
+<script>
+  // Attempt to auto-play audio on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    const audio = document.getElementById('bg-music');
+    audio.play().catch(() => {
+      // Some browsers block autoplay with sound
+      // Show a play prompt if needed
+      const playBtn = document.createElement('button');
+      playBtn.innerText = "Click to Play Music 🎵";
+      playBtn.style = "position:fixed;bottom:20px;left:50%;transform:translateX(-50%);padding:10px 20px;font-size:16px;background:#e91e63;color:white;border:none;border-radius:20px;";
+      document.body.appendChild(playBtn);
+      playBtn.addEventListener('click', () => {
+        audio.play();
+        playBtn.remove();
+      });
+    });
+  });
+</script>
+
+  <script>
+    function showHug() {
+      document.getElementById('hug-popup').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
